@@ -26,6 +26,6 @@ exports.signin = async(req,res,next) => {
     if(!isValid) return res.status(400).send({msg: "Incorrect Password"})
 
     // Generate Token
-    const token = jwt.sign(existUser, process.env.SECRET_KEY, {expiresIn: '1hr'})
+    const token = jwt.sign(existUser, "AGILI", {expiresIn: '1hr'})
     res.send(token);
 }

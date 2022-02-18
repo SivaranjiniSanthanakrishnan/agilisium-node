@@ -19,7 +19,7 @@ app.use('/product', productRouter);
 
 
 
-app.listen(process.env.PORT);
+app.listen(3002);
 
 // localhost:3001/product/get
 // npm i dotenv

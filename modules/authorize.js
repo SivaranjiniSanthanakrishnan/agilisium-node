@@ -7,7 +7,7 @@ exports.AuthenticateUser = async (req,res,next) => {
 
     // Verify Token
     try{
-        req.body.user = await jwt.verify(req.headers['access-token'], process.env.SECRET_KEY)
+        req.body.user = await jwt.verify(req.headers['access-token'], "AGILI")
         next();
     }catch(err) {
         res.send(401).send({msg : "Unauthorised"})
