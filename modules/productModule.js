@@ -23,7 +23,7 @@ module.exports.createProduct = async (req,res,next) => {
 
 module.exports.updateProduct = async (req,res,next) => {
     try{
-        var response = await mongo.db.collection('Products').updateOne({_id: ObjectId(req.params.id)}, {$set: {...req.body}})
+        var response = await mongo.db.collection('Products').findOneAndUpdate({_id: ObjectId(req.params.id)}, {$set: {...req.body}}, {returnNewDocument: true})
         res.send(response)
     }catch(err){
         console.error(err);
