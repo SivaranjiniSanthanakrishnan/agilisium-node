@@ -4,7 +4,7 @@ module.exports = {
     db: null,
     async connect (){
         try {
-            const connection = await MongoClient.connect("mongodb+srv://sivaranjini:fW4PcVRMjILp4WGc@cluster0.sdfhf.mongodb.net?retryWrites=true&w=majority");
+            const connection = await MongoClient.connect(process.env.MONGODB_URL);
             this.db = connection.db("agilisium");
             console.log("Connection success");
         } catch(err) {
